@@ -1,0 +1,122 @@
+Overview
+
+This project analyzes Chicago crime data using:
+
+API data ingestion (Socrata Open Data API)
+
+SQL querying inside Python
+
+Time-series analysis
+
+Anomaly detection (crime spike identification)
+
+Forecast baseline modeling
+
+The dataset contains reported incidents filtered between approximately 2015–2016 due to API safety limits applied during data collection.
+
+📊 Key Observations
+1️⃣ Crime Volume Patterns
+
+Monthly citywide incidents show clear seasonality:
+
+Crime counts increase during late spring and summer months.
+
+Peak activity occurs mid-year.
+
+Incident counts decline toward winter months.
+
+This seasonal behavior suggests environmental or social drivers such as:
+
+Increased outdoor activity
+
+Weather patterns
+
+Population mobility changes.
+
+2️⃣ Arrest Rate Variation by Crime Type
+
+The arrest-rate heatmap reveals strong differences between offense categories:
+
+Some crime types show consistently high arrest rates (e.g., narcotics-related or enforcement-driven categories).
+
+Others show significantly lower arrest success relative to incident volume.
+
+Possible interpretations:
+
+Certain offenses are proactive enforcement-driven rather than reactive investigations.
+
+High-volume property crimes may have lower clearance probability.
+
+3️⃣ Crime Spikes (Anomaly Detection)
+
+Rolling z-score anomaly detection highlights unusual increases relative to historical patterns.
+
+Instead of relying on absolute incident counts, spikes were identified using statistical deviation from recent trends.
+
+Insights:
+
+Not all high-count months are anomalies.
+
+Spikes represent deviations from expected seasonal behavior.
+
+This approach avoids false alarms caused by predictable seasonal peaks.
+
+4️⃣ Incident Volume vs Arrest Rate
+
+Scatter analysis suggests:
+
+High incident volume does not necessarily correlate with higher arrest rates.
+
+Some lower-volume categories achieve higher arrest efficiency.
+
+This reinforces the need to evaluate both metrics simultaneously rather than independently.
+
+5️⃣ Forecast Baseline
+
+A seasonal naive baseline model was implemented:
+
+Future values predicted using previous seasonal periods (12-month lag).
+
+Serves as a benchmark for future predictive models.
+
+Purpose:
+
+Establish baseline expectations.
+
+Measure future model improvement against simple assumptions.
+
+🧠 Analytical Approach
+
+The project intentionally combines:
+
+SQL for aggregation and grouping.
+
+Python for transformation, modeling, and visualization.
+
+API-based data ingestion rather than static CSV files.
+
+This workflow mirrors real-world analytics pipelines used in:
+
+Public safety analytics
+
+Intelligence analysis
+
+Operations research.
+
+⚠️ Limitations
+
+API pagination safety limits restrict dataset size.
+
+Time range reflects available fetched data rather than full historical archive.
+
+Forecast model is baseline only, not optimized predictive modeling.
+
+🚀 Future Improvements
+
+Pull full multi-year dataset via automated batching.
+
+Add geospatial hotspot analysis (GIS clustering).
+
+Implement advanced forecasting (SARIMA / Prophet / ML regression).
+
+Build dashboard visualization.
